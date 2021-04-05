@@ -46,3 +46,17 @@ SELECT DISTINCT p.maker, l.speed
 FROM laptop l
 JOIN product p ON p.model = l.model
 WHERE l.hd >= 10
+
+7 Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
+
+SELECT DISTINCT product.model, laptop.price
+FROM product JOIN laptop ON product.model = laptop.model
+WHERE maker = 'B'
+UNION
+SELECT DISTINCT product.model, pc.price
+FROM product JOIN pc ON product.model = pc.model
+WHERE maker = 'B'
+UNION
+SELECT DISTINCT product.model, printer.price
+FROM product JOIN printer ON product.model = printer.model
+WHERE maker = 'B'
