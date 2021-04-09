@@ -60,8 +60,8 @@ UNION
 SELECT DISTINCT product.model, printer.price
 FROM product JOIN printer ON product.model = printer.model
 WHERE maker = 'B'
- 
-8
+
+8 Найдите производителя, выпускающего ПК, но не ПК-блокноты.
 
 SELECT DISTINCT maker
 FROM product
@@ -70,4 +70,3 @@ EXCEPT
 SELECT DISTINCT product.maker
 FROM product
 Where type = 'laptop'
-
