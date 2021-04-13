@@ -63,10 +63,17 @@ WHERE maker = 'B'
 
 8 Найдите производителя, выпускающего ПК, но не ПК-блокноты.
 
-SELECT DISTINCT maker
+SELECT product.maker
 FROM product
 WHERE type = 'pc'
 EXCEPT
-SELECT DISTINCT product.maker
+SELECT product.maker
 FROM product
-Where type = 'laptop'
+WHERE type = 'laptop'
+
+9 Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker
+
+SELECT DISTINCT product.maker
+FROM pc
+JOIN product ON product.model=pc.model
+WHERE speed >= 450
