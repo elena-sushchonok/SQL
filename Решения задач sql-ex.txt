@@ -96,3 +96,9 @@ FROM pc
 SELECT AVG(speed)
 FROM laptop
 WHERE price > 1000
+
+13 Найдите среднюю скорость ПК, выпущенных производителем A.
+
+SELECT AVG(pc.speed)
+FROM pc, product
+WHERE pc.model = product.model AND product.maker = 'A'
