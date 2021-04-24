@@ -137,3 +137,11 @@ HAVING COUNT(hd) >= 2
 SELECT distinct pc1.model, pc2.model, pc1.speed, pc1.ram
 FROM pc AS pc1, pc AS pc2
 WHERE pc1.model>pc2.model AND pc1.speed=pc2.speed AND pc1.ram=pc2.ram;
+
+17 Найдите модели ПК-блокнотов, скорость которых меньше скорости каждого из ПК.
+Вывести: type, model, speed
+
+SELECT DISTINCT p.type,p.model,l.speed
+FROM laptop l
+JOIN product p ON l.model=p.model
+WHERE l.speed<(SELECT min(speed) FROM pc) 
