@@ -145,3 +145,10 @@ SELECT DISTINCT p.type,p.model,l.speed
 FROM laptop l
 JOIN product p ON l.model=p.model
 WHERE l.speed<(SELECT min(speed) FROM pc) 
+
+18 Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
+
+SELECT DISTINCT product.maker, printer.price
+FROM printer, product
+WHERE product.model = printer.model AND printer.color = 'y'
+AND printer.price = (SELECT MIN(price) FROM printer WHERE printer.color = 'y')
